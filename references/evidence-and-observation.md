@@ -32,7 +32,7 @@ Use one source type per ledger row:
 
 ## 3. Ledger schema
 
-Create a row for every meaningful observation:
+Create a row for every meaningful observation. Record product/version (or unknown), observation date and source URL/local path in each row or in a source register linked by evidence ID. For official claims, record what the vendor says separately from what was observed; an official capability statement does not confirm successful execution in the inspected session:
 
 | ID | Sequence | Source type | Surface | Actor/Agent | Exact visible evidence | Asset/state change | Screenshot | Class | Notes/conflict |
 |---|---:|---|---|---|---|---|---|---|---|

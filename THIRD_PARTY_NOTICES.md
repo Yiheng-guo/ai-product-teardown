@@ -1,5 +1,10 @@
 # Third-Party Notices
 
+## Upstream skill attribution
+
+This derivative is maintained by Yiheng-guo and is based on [w93139/ai-product-teardown](https://github.com/w93139/ai-product-teardown), version 2.2.0, commit `fdecf3ddb6f40e92484dbb710918411225220ad8`. The upstream MIT license and copyright notice are retained. Version 2.3.0 adds product-decision and task-comparison modes, Chinese report templates, a fictional example, and source-tracking clarifications. These additions do not imply upstream endorsement.
+
+
 ## System Prompt Index and AISPA
 
 This skill can optionally query the public [System Prompt Index](https://github.com/SystemPromptIndex/SystemPromptIndex) dataset and apply the [AISPA](https://systempromptindex.ai/aispa) review dimensions.

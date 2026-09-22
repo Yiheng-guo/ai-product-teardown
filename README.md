@@ -1,6 +1,38 @@
-# AI Product Teardown
+# AI Product Teardown · 产品决策增强版
 
-> 当前版本：v2.2.0
+> 当前版本：v2.3.0 · Yiheng-guo 二次开发版
+>
+> 基于 [w93139/ai-product-teardown](https://github.com/w93139/ai-product-teardown) v2.2.0（`fdecf3ddb6f40e92484dbb710918411225220ad8`），保留 MIT 许可、原作者署名与提交历史。
+
+## 这次二改增加了什么
+
+原版着重用户旅程、Agent 和架构逆向；本版进一步连接到产品决策：
+
+- **产品决策模式**：围绕用户任务、首次可用结果、AI 相对人工的增量、体验摩擦和商业假设形成结论。
+- **同任务竞品对比**：固定输入、验收条件与套餐口径，区分实测和官方宣称，避免信息不对称下强行排名。
+- **可验证的改进建议**：每个机会连接观察证据、用户影响、优先级、实验指标与护栏；未执行实验不写结果。
+- **中文交付模板与完整示例**：直接用于产品评审、体验报告和竞品分析。
+- **更完整的来源记录**：补上版本、日期和链接，并明确标价、实际扣款、积分与模型成本的差异。
+
+原有截图采集、Agent 契约、Prompt、架构、HTML 模板和公开审计查询器保留。只说“拆解一下”时先给简洁产品决策报告；明确指定模式时按指定范围执行。
+
+### 直接使用
+
+```text
+使用 $ai-product-teardown，按产品决策模式拆解这个产品：<链接或材料>。
+重点分析目标任务、首次价值、AI 增量和体验问题，给出有证据的优先级与验证实验。
+没有实测数据的地方明确写未知。
+```
+
+```text
+使用 $ai-product-teardown，对比 <产品 A> 与 <产品 B> 完成 <同一任务> 的体验。
+使用我提供的操作记录，统一成功标准，比较结果质量、返工、控制能力和交付成本。
+不要把官网宣称当成已验证结果。
+```
+
+[产品决策模板](assets/product-decision-template.md) · [竞品对比模板](assets/comparison-template.md) · [虚构完整示例](examples/product-decision-demo.md)
+
+## 原版能力与兼容性
 
 一套基于真实界面、操作截图和可观察状态，对 **AI 产品行为与产品架构** 进行证据化逆向拆解的 Codex Skill。
 
@@ -46,14 +78,16 @@
 安装为个人 Skill：
 
 ```bash
-git clone https://github.com/w93139/ai-product-teardown.git ~/.agents/skills/ai-product-teardown
+git clone https://github.com/Yiheng-guo/ai-product-teardown.git ~/.agents/skills/ai-product-teardown
 ```
 
 或安装到当前仓库：
 
 ```bash
-git clone https://github.com/w93139/ai-product-teardown.git .agents/skills/ai-product-teardown
+git clone https://github.com/Yiheng-guo/ai-product-teardown.git .agents/skills/ai-product-teardown
 ```
+
+如果目标目录已存在，先检查其来源并备份本地修改，不要直接覆盖。与原版保持同一个 Skill 名称，安装时选择其中一个版本，避免重复发现。
 
 然后调用：
 
@@ -61,7 +95,7 @@ git clone https://github.com/w93139/ai-product-teardown.git .agents/skills/ai-pr
 使用 $ai-product-teardown，以只读、证据可追溯的方式拆解这个 AI 产品。
 ```
 
-可指定五种工作模式：
+可指定七种工作模式：
 
 | 模式 | 主要回答 | 典型交付物 |
 |---|---|---|
@@ -69,7 +103,9 @@ git clone https://github.com/w93139/ai-product-teardown.git .agents/skills/ai-pr
 | Agent 契约 | 哪些 Agent 出现，它们如何输入、判断、调用、输出和交接 | Agent 清单、I/O 契约、工具表、上下文数据流 |
 | 功能等价 Prompt | 如何让另一个 Agent 表现出相近的可观察行为 | 状态机、System Prompt、规则追溯表、最小测试集 |
 | 产品架构 | 产品功能、Agent、工具、模型、数据、资产和治理如何协同 | 分层架构、ER 图、时序图、As-Is / To-Be、风险清单 |
-| 完整拆解 | 如何形成端到端、可追溯的产品模型 | 上述交付物的分阶段组合与汇总报告 |
+| 完整拆解 | 如何形成端到端、可追溯的产品模型 | 上述四种原版模式的分阶段组合与汇总报告 |
+| 产品决策（新增） | 谁需要它、AI 有什么增量、优先改什么 | 用户任务、价值判断、机会优先级、验证实验 |
+| 同任务竞品对比（新增） | 相同任务下各产品有什么可验证差异 | 对比条件、证据矩阵、条件结论、适配建议 |
 
 只执行用户请求的模式，不会因为选择了用户旅程就自动继续还原 Prompt 或架构。
 
@@ -139,6 +175,8 @@ ai-product-teardown/
 ├── agents/
 │   └── openai.yaml
 ├── references/
+│   ├── product-decision.md
+│   ├── task-comparison.md
 │   ├── analysis-modes.md
 │   ├── architecture-framework.md
 │   ├── evidence-and-observation.md
@@ -152,12 +190,19 @@ ai-product-teardown/
 │   └── query_system_prompt_index.py
 ├── tests/
 │   └── test_query_system_prompt_index.py
+├── examples/
+│   └── product-decision-demo.md
 └── assets/
+    ├── product-decision-template.md
+    ├── comparison-template.md
     └── report-template.html
 ```
 
 ## 主要文件
 
+- [`product-decision.md`](references/product-decision.md)：产品价值、机会优先级与实验设计。
+- [`task-comparison.md`](references/task-comparison.md)：同任务对比、公平条件与缺失证据处理。
+- [`product-decision-demo.md`](examples/product-decision-demo.md)：完整虚构案例，不含真实用户数据。
 - [`SKILL.md`](SKILL.md)：Skill 入口、模式路由、证据边界和质量标准。
 - [`evidence-and-observation.md`](references/evidence-and-observation.md)：证据账本、跨页面核验和截图规范。
 - [`screenshot-acquisition.md`](references/screenshot-acquisition.md)：Web、小程序和桌面产品的安全自主截图、状态校验、去重和清单协议。

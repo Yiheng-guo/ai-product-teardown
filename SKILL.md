@@ -1,11 +1,11 @@
 ---
 name: ai-product-teardown
-description: Reverse-engineer an AI product from authenticated UI evidence, including autonomous screenshot collection when safe browser or desktop controls are available, producing traceable user journeys, Agent I/O contracts, functional-equivalent prompts, or layered product architecture. Use for read-only product teardowns grounded in chats, canvases, assets, states, errors, and official sources; do not use for generic market research based only on promotional pages.
+description: 基于真实界面、截图和官方资料拆解 AI 产品，产出用户旅程、Agent 契约、功能等价 Prompt、产品架构、产品价值判断或同任务竞品对比。适用于产品拆解、体验诊断和基于证据的改进方案；只有宣传资料时仅输出待验证假设，不声称完成行为实测。
 metadata:
-  version: "2.2.0"
+  version: "2.3.0"
 ---
 
-# AI Product Reverse Engineering
+# AI Product Teardown · 产品决策增强版
 
 Turn observable product behavior into a defensible product model. Preserve the boundary between what the interface proves, what behavior suggests, what should be designed, and what remains unknown.
 
@@ -19,7 +19,14 @@ Select only the mode needed by the user. Do not silently continue into later mod
 4. **Architecture** — combine accepted earlier artifacts into end-to-end flows, layers, data entities, state, asset, model, billing, safety, and infrastructure views.
 5. **Full teardown** — run the four modes in order, pausing for user confirmation between them when the user requests staged validation.
 
-Read [analysis-modes.md](references/analysis-modes.md) for the selected mode. For Architecture mode, also read [architecture-framework.md](references/architecture-framework.md). For any durable report, HTML page, or diagram, read [report-and-visualization.md](references/report-and-visualization.md). For HTML delivery, also read [html-delivery.md](references/html-delivery.md) and reuse [report-template.html](assets/report-template.html) when it helps.
+6. **Product decision / 产品决策** — connect observed behavior to the user's job, AI value, adoption friction, business assumptions, and a testable improvement plan. Read [product-decision.md](references/product-decision.md); adapt [product-decision-template.md](assets/product-decision-template.md).
+7. **Task-based comparison / 同任务竞品对比** — compare products against the same task, input, constraints, and success criteria. Read [task-comparison.md](references/task-comparison.md); adapt [comparison-template.md](assets/comparison-template.md).
+
+When “拆解一下” has no specified depth, start with a concise Product decision report and the minimum evidenced journey needed to support it. Use the user's language (Chinese by default). A request for the original Full teardown still selects modes 1–4; do not silently add business research or competitor trials. If no target can be identified, ask for the product name/link and continue only independent preparation.
+
+Official-only material supports a desk-research brief, not an observed journey. State this limitation prominently, then deliver supported claims and a collection plan without inventing screenshots or test results. Existing user authorization for specific actions persists; do not ask for it again.
+
+Read [analysis-modes.md](references/analysis-modes.md) only for modes 1–4 or Full teardown. For Architecture mode, also read [architecture-framework.md](references/architecture-framework.md). For any durable report, HTML page, or diagram, read [report-and-visualization.md](references/report-and-visualization.md). For HTML delivery, also read [html-delivery.md](references/html-delivery.md) and reuse [report-template.html](assets/report-template.html) when it helps.
 
 For a staged teardown, multi-artifact delivery pack, or team handoff with explicit acceptance gates, also read [staged-execution-sop.md](references/staged-execution-sop.md). It coordinates artifact dependencies, accepted versions, and mode transitions; it does not replace the selected mode contract or require earlier modes when the user requested only one mode.
 
@@ -28,7 +35,7 @@ When a teardown materially depends on published system-prompt evidence, competit
 ## Operate within the evidence boundary
 
 - Treat the product as read-only unless the user explicitly authorizes a specific mutation.
-- Do not send product messages or trigger generation, regeneration, batch generation, publishing, deletion, purchase, recharge, export with side effects, or asset overwrite.
+- Without authorization covering the action, do not send product messages or trigger generation, regeneration, batch generation, publishing, deletion, purchase, recharge, export with side effects, or asset overwrite. With authorization, stay within its scope and budget; a teardown request alone is not authorization for paid trials.
 - Safe inspection may include scrolling history, expanding public planning summaries, switching visible asset categories, opening existing previews, and reading existing version or error panels.
 - If authentication, CAPTCHA, or manual takeover is required, stop and let the user take control. Never inspect or expose cookies, tokens, passwords, authorization headers, private browser storage, or sensitive identity data.
 - Use the current signed-in session only through an available browser-control capability. Do not bypass access controls.
@@ -51,7 +58,7 @@ Use exactly these conclusion classes unless the user specifies equivalent labels
 
 In Journey mode, `【页面事实】` is an acceptable user-facing alias for `【已确认】`, and `【尚未确认】` for `【未知】`.
 
-For every ledger entry capture: source type, visible text or control, Agent identity if shown, asset or status observed, screen or screenshot ID, sequence position, and confidence class. Preserve conflicting observations as separate entries.
+For every ledger entry capture: product/version or “unknown”, observation date, source URL or local path, source type, visible text or control, Agent identity if shown, asset or status observed, screen or screenshot ID, sequence position, and confidence class. Preserve conflicting observations as separate entries.
 
 ## Apply the verification invariants
 
