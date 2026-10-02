@@ -110,3 +110,7 @@ A finished teardown must let another reviewer answer:
 - Why might chat and canvas disagree, and what would make completion authoritative?
 
 Prefer a concise, evidence-dense artifact over a long narrative. Preserve screenshot links and local artifact links so the user can audit the result.
+
+## Reproducible claim-link audit (2026-10-02)
+
+Use [scripts/audit_claims.py](scripts/audit_claims.py) for a saved evidence/claim ledger. It detects unknown evidence IDs, confirmed claims without sources, and behavior claims supported only by marketing/docs. Read [examples/claim-audit/CASE.md](examples/claim-audit/CASE.md) for synthetic inputs and recorded outputs. This type/link check does not replace reading the actual source or observing the product.

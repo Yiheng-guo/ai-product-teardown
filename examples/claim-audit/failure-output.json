@@ -1,0 +1,10 @@
+{
+  "status": "needs_review",
+  "findings": [
+    {
+      "claim": "C1",
+      "issue": "marketing/docs cannot prove observed behavior"
+    }
+  ],
+  "limits": "Link/type audit only; does not semantically verify source support."
+}

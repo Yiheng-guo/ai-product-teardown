@@ -232,3 +232,7 @@ python3 scripts/query_system_prompt_index.py "Cursor" --repo /path/to/SystemProm
 本项目采用 [MIT License](LICENSE)。你可以使用、复制、修改和分发本项目，但必须保留许可证和版权声明。第三方数据和 Prompt 文本不由本项目重新授权，详见 [Third-Party Notices](THIRD_PARTY_NOTICES.md)。
 
 公开提交前请遵守 [Security Policy](SECURITY.md)，不要上传 Cookie、Token、密码、私有聊天、客户素材、未脱敏截图或其他敏感证据。
+
+## 2026-10-02 证据审计增强
+
+新增 `scripts/audit_claims.py`、合成正反例和执行记录，拦截“宣传资料证明实际行为”的错误外推。

@@ -1,0 +1,5 @@
+{
+  "status": "linked",
+  "findings": [],
+  "limits": "Link/type audit only; does not semantically verify source support."
+}
